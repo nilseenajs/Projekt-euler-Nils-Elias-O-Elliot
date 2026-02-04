@@ -1,6 +1,6 @@
-// Funktion som hittar talet under "limit"
-// som ger den längsta Collatz-sekvensen
-function CollatzSequence(limit) {
+/* Funktion som hittar talet under "limit"
+ som ger den längsta Collatz-sekvensen
+function CollatzSequence(limit) { */
 
     // Talet som just nu har längst sekvens
     let theNumber = 2;
