@@ -1,0 +1,62 @@
+// Funktion som hittar talet under "limit"
+// som ger den längsta Collatz-sekvensen
+function CollatzSequence(limit) {
+
+    // Talet som just nu har längst sekvens
+    let theNumber = 2;
+
+    // Längden på den längsta sekvensen hittills
+    let maxLength = 0;
+
+    // Gå igenom alla tal från 2 upp till limit - 1
+    for (let i = 2; i < limit; i++) {
+
+        // Beräkna längden på Collatz-sekvensen för talet i
+        const length = checklength(i);
+
+        // Om denna sekvens är längre än tidigare
+        if (length > maxLength) {
+
+            // Uppdatera längsta längden
+            maxLength = length;
+
+            // Spara talet som gav denna längd
+            theNumber = i;
+        }
+    }
+
+    // Returnera talet som gav längst Collatz-sekvens
+    return theNumber;
+}
+
+// Funktion som räknar längden på Collatz-sekvensen
+// för ett givet starttal
+function checklength(number) {
+
+    // Räknar hur många steg sekvensen har
+    let length = 1;
+
+    // Kör tills talet blir 1
+    while (number !== 1) {
+
+        // Om talet är jämnt
+        if (number % 2 === 0) {
+
+            // Dela talet med 2
+            number /= 2;
+
+        } else {
+            // Om talet är udda: 3 * number + 1
+            number = 3 * number + 1;
+        }
+
+        // Öka längden för varje steg
+        length++;
+    }
+
+    // Returnera längden på sekvensen
+    return length;
+}
+
+// Skriv ut talet under 14 som ger längst Collatz-sekvens
+console.log(CollatzSequence(14));
